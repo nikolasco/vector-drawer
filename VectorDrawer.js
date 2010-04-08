@@ -4,7 +4,7 @@
      var CLOSE_ENOUGH = 8;
      var EPSILON = 10e-6;
      // TODO: make these configurable
-     var INIT_ATTRS = {"stroke-width": "1px", "stroke": "black"};
+     var INIT_ATTRS = {"stroke-width": "1px", "stroke": "#a12fae"};
      var SELECTED_ATTRS = {"stroke-width": "1px", "stroke": "#ff6666"};
 
      function makePathStr(ps) {
@@ -71,7 +71,6 @@
      function relScale(vd, o) {
          return vd._scale/o.scale;
      }
-
 
      function pointDistSq(a, b) {
          var dx = a.x-b.x, dy = a.y-b.y;
@@ -371,6 +370,7 @@
                  o.cur = self._paper[o.con].apply(self._paper, o.args);
                  var rs = relScale(self, o);
                  o.cur.scale(rs, rs, 0, 0);
+                 o.cur.attr(INIT_ATTRS);
              });
          },
          // given an event e, figure out where it is relative to the canvas
